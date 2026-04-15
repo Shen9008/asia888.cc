@@ -655,3 +655,132 @@
     padding: 0.65rem 1rem 1rem;
     line-height: 1.45;
 }
+
+/* ========== PAGE HIGHLIGHTS (slots / live / sports / promos) ========== */
+/* Use with .section — padding comes from .section */
+.page-highlights {
+    background: var(--bg-darker);
+    border-top: 1px solid var(--border-default);
+}
+
+.page-highlights__lead {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    max-width: 44rem;
+    line-height: 1.65;
+}
+
+.page-highlights__disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 48rem;
+}
+
+.highlight-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .highlight-grid--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .highlight-grid--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.highlight-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem 1.5rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.highlight-card:hover {
+    border-color: var(--border-subtle);
+    box-shadow: var(--shadow-card);
+}
+
+.highlight-card__title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.highlight-card__title .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.highlight-card__note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.85rem;
+    line-height: 1.45;
+}
+
+.highlight-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.highlight-list li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border-default);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+.highlight-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.highlight-list strong {
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.highlight-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.highlight-tag {
+    display: inline-block;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+}
+
+.highlight-split {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+    .highlight-split--2 {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
