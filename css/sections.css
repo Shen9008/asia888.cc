@@ -676,10 +676,32 @@
     max-width: 720px;
 }
 
+.seo-content__body h2 {
+    font-size: 1.35rem;
+    margin: 2.25rem 0 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.seo-content__body h2:first-child {
+    margin-top: 0;
+}
+
 .seo-content__body h3 {
     font-size: 1.25rem;
     margin: 2rem 0 0.75rem;
     color: var(--text-primary);
+}
+
+.seo-content__body ul {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+
+.seo-content__body li {
+    margin-bottom: 0.4rem;
 }
 
 .seo-content__body p {
