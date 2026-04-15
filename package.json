@@ -1,0 +1,10 @@
+{
+  "name": "asia888-cc",
+  "version": "1.0.0",
+  "description": "Asia888 marketing site for asia888.cc",
+  "private": true,
+  "scripts": {
+    "serve": "npx --yes serve . -p 8880",
+    "deploy": "wrangler pages deploy . --project-name=asia888-cc --branch=main"
+  }
+}
