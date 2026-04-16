@@ -1024,19 +1024,20 @@
 
 .item-mini-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 148px), 168px));
+    justify-content: center;
     gap: 0.85rem;
 }
 
 @media (min-width: 480px) {
     .item-mini-card-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 180px));
     }
 }
 
 @media (min-width: 1024px) {
     .item-mini-card-grid--dense {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 158px));
     }
 }
 
@@ -1057,29 +1058,36 @@
     transform: translateY(-3px);
 }
 
+/* Mini-card placeholders: +50% visual area vs original (70px / 52px base) */
 .item-mini-card .highlight-placeholder {
-    min-height: 70px;
-    height: 70px;
+    min-height: 105px;
+    height: 105px;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .item-mini-card .highlight-placeholder--wide {
-    min-height: 52px;
-    height: 52px;
+    min-height: 78px;
+    height: 78px;
 }
 
 .item-mini-card .highlight-placeholder__badge {
-    font-size: 0.52rem;
-    left: 0.5rem;
-    bottom: 0.4rem;
+    font-size: 0.78rem;
+    left: 0.65rem;
+    bottom: 0.55rem;
     letter-spacing: 0.07em;
 }
 
 .item-mini-card .highlight-placeholder__icon {
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.9rem;
-    right: 0.45rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.35rem;
+    right: 0.55rem;
+}
+
+.item-mini-card .highlight-placeholder--wide .highlight-placeholder__icon {
+    width: 3.75rem;
+    height: 3.75rem;
+    font-size: 1.65rem;
 }
 
 .item-mini-card__body {
