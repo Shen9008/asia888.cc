@@ -354,16 +354,26 @@
     color: var(--text-primary);
 }
 
-/* Featured Grid */
+/* Featured Grid (homepage — .game-card, not .item-mini-card) */
 .featured-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    justify-items: center;
+}
+
+.featured-grid .game-card {
+    width: 100%;
+    max-width: 200px;
 }
 
 @media (min-width: 768px) {
     .featured-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .featured-grid .game-card {
+        max-width: 220px;
     }
 }
 
