@@ -1024,33 +1024,33 @@
 
 .item-mini-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 444px), 504px));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 222px), 252px));
     justify-content: center;
     justify-items: center;
-    gap: 2.55rem;
+    gap: 1.275rem;
 }
 
 @media (min-width: 480px) {
     .item-mini-card-grid {
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 540px));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 270px));
     }
 }
 
 @media (min-width: 1024px) {
     .item-mini-card-grid--dense {
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 474px));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 237px));
     }
 }
 
 .item-mini-card {
     background: var(--gradient-card);
     border: 1px solid var(--border-default);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 540px;
+    max-width: 270px;
     min-height: 100%;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
@@ -1058,43 +1058,43 @@
 .item-mini-card:hover {
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-card);
-    transform: translateY(-9px);
+    transform: translateY(-5px);
 }
 
-/* Mini-card placeholders: 3× prior size (105px / 78px thumb heights) */
+/* Mini-card placeholders: ½ prior “3×” block (≈158px / 117px thumbs) */
 .item-mini-card .highlight-placeholder {
-    min-height: 315px;
-    height: 315px;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    min-height: 158px;
+    height: 158px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .item-mini-card .highlight-placeholder--wide {
-    min-height: 234px;
-    height: 234px;
+    min-height: 117px;
+    height: 117px;
 }
 
 .item-mini-card .highlight-placeholder__badge {
-    font-size: 2.34rem;
-    left: 1.95rem;
-    bottom: 1.65rem;
+    font-size: 1.17rem;
+    left: 0.975rem;
+    bottom: 0.825rem;
     letter-spacing: 0.07em;
 }
 
 .item-mini-card .highlight-placeholder__icon {
-    width: 9rem;
-    height: 9rem;
-    font-size: 4.05rem;
-    right: 1.65rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 2.025rem;
+    right: 0.825rem;
 }
 
 .item-mini-card .highlight-placeholder--wide .highlight-placeholder__icon {
-    width: 11.25rem;
-    height: 11.25rem;
-    font-size: 4.95rem;
+    width: 5.625rem;
+    height: 5.625rem;
+    font-size: 2.475rem;
 }
 
 .item-mini-card__body {
-    padding: 1.95rem 2.25rem 2.4rem;
+    padding: 0.975rem 1.125rem 1.2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1104,15 +1104,15 @@
 
 .item-mini-card__title {
     font-family: var(--font-display);
-    font-size: 2.625rem;
+    font-size: 1.3125rem;
     font-weight: 700;
     line-height: 1.2;
     color: var(--text-primary);
-    margin: 0 0 0.9rem;
+    margin: 0 0 0.45rem;
 }
 
 .item-mini-card__meta {
-    font-size: 2.1rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
     line-height: 1.35;
     margin: 0;
@@ -1120,43 +1120,43 @@
 
 @media (max-width: 639px) {
     .item-mini-card .highlight-placeholder__badge {
-        font-size: 1.5rem;
-        left: 1rem;
-        bottom: 0.85rem;
+        font-size: 0.75rem;
+        left: 0.5rem;
+        bottom: 0.4rem;
     }
 
     .item-mini-card .highlight-placeholder__icon {
-        width: 5.5rem;
-        height: 5.5rem;
-        font-size: 2.5rem;
-        right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.25rem;
+        right: 0.5rem;
     }
 
     .item-mini-card .highlight-placeholder--wide .highlight-placeholder__icon {
-        width: 6.5rem;
-        height: 6.5rem;
-        font-size: 2.85rem;
+        width: 3.25rem;
+        height: 3.25rem;
+        font-size: 1.425rem;
     }
 
     .item-mini-card .highlight-placeholder {
-        min-height: 200px;
-        height: 200px;
+        min-height: 100px;
+        height: 100px;
     }
 
     .item-mini-card .highlight-placeholder--wide {
-        min-height: 150px;
-        height: 150px;
+        min-height: 75px;
+        height: 75px;
     }
 
     .item-mini-card__title {
-        font-size: 1.35rem;
+        font-size: 1rem;
     }
 
     .item-mini-card__meta {
-        font-size: 1.05rem;
+        font-size: 0.8rem;
     }
 
     .item-mini-card__body {
-        padding: 1rem 1.1rem 1.25rem;
+        padding: 0.5rem 0.55rem 0.625rem;
     }
 }
