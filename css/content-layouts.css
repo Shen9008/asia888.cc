@@ -1024,30 +1024,33 @@
 
 .item-mini-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 148px), 168px));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 444px), 504px));
     justify-content: center;
-    gap: 0.85rem;
+    justify-items: center;
+    gap: 2.55rem;
 }
 
 @media (min-width: 480px) {
     .item-mini-card-grid {
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 180px));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 540px));
     }
 }
 
 @media (min-width: 1024px) {
     .item-mini-card-grid--dense {
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 158px));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 474px));
     }
 }
 
 .item-mini-card {
     background: var(--gradient-card);
     border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 540px;
     min-height: 100%;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
@@ -1055,60 +1058,105 @@
 .item-mini-card:hover {
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-card);
-    transform: translateY(-3px);
+    transform: translateY(-9px);
 }
 
-/* Mini-card placeholders: +50% visual area vs original (70px / 52px base) */
+/* Mini-card placeholders: 3× prior size (105px / 78px thumb heights) */
 .item-mini-card .highlight-placeholder {
-    min-height: 105px;
-    height: 105px;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    min-height: 315px;
+    height: 315px;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .item-mini-card .highlight-placeholder--wide {
-    min-height: 78px;
-    height: 78px;
+    min-height: 234px;
+    height: 234px;
 }
 
 .item-mini-card .highlight-placeholder__badge {
-    font-size: 0.78rem;
-    left: 0.65rem;
-    bottom: 0.55rem;
+    font-size: 2.34rem;
+    left: 1.95rem;
+    bottom: 1.65rem;
     letter-spacing: 0.07em;
 }
 
 .item-mini-card .highlight-placeholder__icon {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.35rem;
-    right: 0.55rem;
+    width: 9rem;
+    height: 9rem;
+    font-size: 4.05rem;
+    right: 1.65rem;
 }
 
 .item-mini-card .highlight-placeholder--wide .highlight-placeholder__icon {
-    width: 3.75rem;
-    height: 3.75rem;
-    font-size: 1.65rem;
+    width: 11.25rem;
+    height: 11.25rem;
+    font-size: 4.95rem;
 }
 
 .item-mini-card__body {
-    padding: 0.65rem 0.75rem 0.8rem;
+    padding: 1.95rem 2.25rem 2.4rem;
     flex: 1;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .item-mini-card__title {
     font-family: var(--font-display);
-    font-size: 0.875rem;
+    font-size: 2.625rem;
     font-weight: 700;
-    line-height: 1.28;
+    line-height: 1.2;
     color: var(--text-primary);
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.9rem;
 }
 
 .item-mini-card__meta {
-    font-size: 0.7rem;
+    font-size: 2.1rem;
     color: var(--text-muted);
     line-height: 1.35;
     margin: 0;
+}
+
+@media (max-width: 639px) {
+    .item-mini-card .highlight-placeholder__badge {
+        font-size: 1.5rem;
+        left: 1rem;
+        bottom: 0.85rem;
+    }
+
+    .item-mini-card .highlight-placeholder__icon {
+        width: 5.5rem;
+        height: 5.5rem;
+        font-size: 2.5rem;
+        right: 1rem;
+    }
+
+    .item-mini-card .highlight-placeholder--wide .highlight-placeholder__icon {
+        width: 6.5rem;
+        height: 6.5rem;
+        font-size: 2.85rem;
+    }
+
+    .item-mini-card .highlight-placeholder {
+        min-height: 200px;
+        height: 200px;
+    }
+
+    .item-mini-card .highlight-placeholder--wide {
+        min-height: 150px;
+        height: 150px;
+    }
+
+    .item-mini-card__title {
+        font-size: 1.35rem;
+    }
+
+    .item-mini-card__meta {
+        font-size: 1.05rem;
+    }
+
+    .item-mini-card__body {
+        padding: 1rem 1.1rem 1.25rem;
+    }
 }

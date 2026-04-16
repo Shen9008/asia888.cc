@@ -714,6 +714,69 @@
     margin-bottom: 0;
 }
 
+.seo-content__body a {
+    color: var(--primary-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.seo-content__body a:hover {
+    color: var(--text-primary);
+}
+
+.seo-content__lead a {
+    color: var(--primary-light);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.seo-content__lead a:hover {
+    color: var(--text-primary);
+}
+
+/* Inline “related pages” strip (FAQ, etc.) */
+.internal-links {
+    margin: 0 0 1.75rem;
+    padding: 1rem 1.15rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+}
+
+.internal-links__label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary-light);
+    margin-bottom: 0.65rem;
+}
+
+.internal-links__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.internal-links__list a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.seo-content__body .internal-links__list a {
+    text-decoration: none;
+}
+
+.internal-links__list a:hover {
+    color: var(--primary-light);
+}
+
 /* Allow content layouts to use full width within seo-content */
 .seo-content__body .listicle,
 .seo-content__body .steps,

@@ -171,6 +171,13 @@
     font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 0.75rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: inline-block;
+}
+
+a.footer__logo:hover {
+    color: var(--primary-light);
 }
 
 .footer__logo span {
@@ -208,6 +215,45 @@
 }
 
 .footer__links a:hover {
+    color: var(--primary-light);
+}
+
+.footer__sitemap {
+    margin: -1rem 0 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.footer__sitemap-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem 0.15rem;
+    font-size: 0.82rem;
+}
+
+.footer__sitemap-list li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer__sitemap-list li + li::before {
+    content: '·';
+    margin: 0 0.45rem;
+    color: var(--text-subtle);
+    font-weight: 400;
+}
+
+.footer__sitemap-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.footer__sitemap-list a:hover {
     color: var(--primary-light);
 }
 
