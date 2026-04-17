@@ -4,10 +4,17 @@
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
-    padding: 6rem 0 4rem;
+    padding: 5rem 0 3rem;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 6rem 0 4rem;
+    }
 }
 
 .hero__bg {
@@ -136,6 +143,18 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+@media (max-width: 479px) {
+    .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .hero__visual {
@@ -297,6 +316,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+}
+
+@media (max-width: 420px) {
+    .game-categories {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (min-width: 768px) {
@@ -524,6 +549,12 @@
     overflow: hidden;
 }
 
+@media (max-width: 479px) {
+    .cta-block {
+        padding: 2.5rem 0;
+    }
+}
+
 .cta-block__bg {
     position: absolute;
     inset: 0;
@@ -555,6 +586,17 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+}
+
+@media (max-width: 479px) {
+    .cta-block__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-block__actions .btn {
+        width: 100%;
+    }
 }
 
 /* Affiliate promo strip (compact CTA, reusable) */
@@ -590,6 +632,8 @@
     color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.55;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
 }
 
 .affiliate-strip__text strong {
@@ -609,13 +653,26 @@
     }
 }
 
+@media (max-width: 479px) {
+    .affiliate-strip__actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 /* Page Hero (subpages) */
 .page-hero {
     position: relative;
-    padding: 5rem 0 3rem;
+    padding: 4rem 0 2.5rem;
     background: var(--gradient-dark);
     border-bottom: 1px solid var(--border-default);
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .page-hero {
+        padding: 5rem 0 3rem;
+    }
 }
 
 .page-hero::before {
@@ -736,6 +793,8 @@
 
 .seo-content__body {
     max-width: 720px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .seo-content__body h2 {

@@ -101,3 +101,31 @@
 .btn--glow:hover {
     animation: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    [data-animate],
+    [data-animate-stagger] > * {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero__glow,
+    .hero__card,
+    .hero__scroll-indicator {
+        animation: none !important;
+    }
+
+    .btn--glow {
+        animation: none;
+    }
+
+    .game-card:hover,
+    .promo-card:hover {
+        transform: none;
+    }
+}

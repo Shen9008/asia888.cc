@@ -215,6 +215,12 @@
     overflow: hidden;
 }
 
+@media (max-width: 479px) {
+    .infographic {
+        padding: 1.25rem 1rem;
+    }
+}
+
 .infographic__title {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;

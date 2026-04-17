@@ -8,6 +8,8 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -16,8 +18,11 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
-    padding-top: 70px;
+    padding-top: calc(70px + env(safe-area-inset-top, 0px));
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
 }
 
 a {
@@ -33,6 +38,10 @@ a:hover {
 img {
     max-width: 100%;
     height: auto;
+}
+
+main {
+    min-width: 0;
 }
 
 /* Container */
@@ -84,6 +93,12 @@ h4 { font-size: 1.25rem; }
 
 @media (min-width: 768px) {
     .section { padding: 6rem 0; }
+}
+
+@media (max-width: 479px) {
+    .section {
+        padding: 3rem 0;
+    }
 }
 
 .section__header {
