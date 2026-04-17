@@ -192,6 +192,21 @@ a.footer__logo:hover {
     line-height: 1.6;
 }
 
+.footer__cta {
+    margin-top: 1rem;
+}
+
+.footer__cta .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (min-width: 480px) {
+    .footer__cta .btn {
+        width: auto;
+    }
+}
+
 .footer__title {
     font-size: 0.875rem;
     font-weight: 600;
