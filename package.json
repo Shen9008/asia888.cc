@@ -14,10 +14,12 @@
     "backfill:force": "node scripts/backfill-internal-links.js --force",
     "audit:links": "node scripts/audit-internal-links.js",
     "rename:images": "node scripts/bulk-rename-images.mjs",
+    "build:webp": "node scripts/convert-assets-webp.mjs",
     "sitemap": "node -e \"require('./scripts/lib/generate-sitemap.js').generateSitemap()\""
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
+    "sharp": "^0.34.5",
     "wrangler": "^4.22.0"
   }
 }

@@ -141,7 +141,7 @@ function renderArticle(normalized, opts = {}) {
   const blogPath = blogPathRaw.replace(/\/+$/, '') + '/';
   const baseUrl = `${siteOrigin}${blogPath}${normalized.slug}/`;
   const shareTitle = encodeURIComponent(normalized.title);
-  const ogImage = `${siteOrigin}/assets/img/home/home-main-visual.png`;
+  const ogImage = `${siteOrigin}/assets/img/home/home-main-visual.webp`;
 
   const tocHtml = buildTocHtml(normalized.toc_json || []);
   const articleBodyRaw = ensureHtml(normalized.content || '');
