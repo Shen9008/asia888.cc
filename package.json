@@ -4,7 +4,20 @@
   "description": "Asia888 marketing site for asia888.cc",
   "private": true,
   "scripts": {
+    "dev": "npx --yes serve . -p 8880",
     "serve": "npx --yes serve . -p 8880",
-    "deploy": "wrangler pages deploy . --project-name=asia888-cc --branch=main"
+    "deploy": "wrangler pages deploy . --project-name=asia888-cc --branch=main",
+    "sync": "node scripts/content-sync.js",
+    "sync:all": "node scripts/content-sync.js --all",
+    "sync:doctor": "node scripts/sync-doctor.js",
+    "backfill": "node scripts/backfill-internal-links.js",
+    "backfill:force": "node scripts/backfill-internal-links.js --force",
+    "audit:links": "node scripts/audit-internal-links.js",
+    "rename:images": "node scripts/bulk-rename-images.mjs",
+    "sitemap": "node -e \"require('./scripts/lib/generate-sitemap.js').generateSitemap()\""
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "wrangler": "^4.22.0"
   }
 }
