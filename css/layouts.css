@@ -243,6 +243,21 @@ a.footer__logo:hover {
     color: var(--primary-light);
 }
 
+.footer__contact {
+    margin: 0.75rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.footer__contact a {
+    color: var(--text-muted);
+    word-break: break-all;
+}
+
+.footer__contact a:hover {
+    color: var(--primary-light);
+}
+
 .footer__sitemap {
     margin: -1rem 0 2rem;
     padding-bottom: 2rem;
