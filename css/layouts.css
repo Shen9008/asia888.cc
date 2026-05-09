@@ -478,6 +478,9 @@ a.footer__logo:hover {
 
 .footer__cta {
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .footer__cta .btn {
@@ -486,6 +489,12 @@ a.footer__logo:hover {
 }
 
 @media (min-width: 480px) {
+    .footer__cta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
     .footer__cta .btn {
         width: auto;
     }

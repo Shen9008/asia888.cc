@@ -14,10 +14,11 @@
             .replace(/"/g, '&quot;');
     }
 
+    /** Newest synced first — matches scripts/content-sync.js sortBlogsByLatestSyncFirst. */
     function sortPosts(posts) {
         return posts.slice().sort(function (a, b) {
-            var tb = new Date(b.published_date || b.synced_at || 0).getTime();
-            var ta = new Date(a.published_date || a.synced_at || 0).getTime();
+            var tb = new Date(b.synced_at || b.published_date || 0).getTime();
+            var ta = new Date(a.synced_at || a.published_date || 0).getTime();
             if (tb !== ta) return tb - ta;
             return String(b.slug || '').localeCompare(String(a.slug || ''));
         });
