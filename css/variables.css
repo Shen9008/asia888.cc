@@ -36,8 +36,8 @@
     --gradient-card: linear-gradient(145deg, #172033 0%, #0f172a 100%);
     --gradient-text: linear-gradient(135deg, #5eead4 0%, #eab308 65%, #fde68a 100%);
     --gradient-mesh: radial-gradient(at 38% 18%, rgba(20, 184, 166, 0.14) 0%, transparent 52%),
-                     radial-gradient(at 82% 0%, rgba(234, 179, 8, 0.08) 0%, transparent 48%),
-                     radial-gradient(at 0% 55%, rgba(34, 211, 238, 0.06) 0%, transparent 50%);
+        radial-gradient(at 82% 0%, rgba(234, 179, 8, 0.08) 0%, transparent 48%),
+        radial-gradient(at 0% 55%, rgba(34, 211, 238, 0.06) 0%, transparent 50%);
 
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.55);
@@ -60,4 +60,10 @@
 
     --font-display: 'Syne', 'Outfit', sans-serif;
     --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Header inner row, `.container`, promo rail — single content column width */
+    --layout-max-width: 1280px;
+
+    /* Fixed header clearance — sync with `.header` vertical padding + `.header__logo img` height */
+    --site-header-offset: calc(4.75rem + env(safe-area-inset-top, 0px));
 }

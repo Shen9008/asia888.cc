@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta name="keywords" content="{{KEYWORDS}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="{{CANONICAL_URL}}">
+  <link rel="alternate" hreflang="en" href="{{CANONICAL_URL}}">
+  <link rel="alternate" hreflang="x-default" href="{{CANONICAL_URL}}">
+  <link rel="sitemap" type="application/xml" href="{{SITE_ORIGIN}}/sitemap.xml">
+  <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icons/logo.png">
+  <meta name="theme-color" content="#0f172a">
+
+  <meta property="og:title" content="{{META_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="og:image" content="{{OG_IMAGE_URL}}">
+  <meta property="og:site_name" content="Asia888">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:published_time" content="{{PUBLISHED_DATE_ISO}}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{META_TITLE}}">
+  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{OG_IMAGE_URL}}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layouts.css">
+  <link rel="stylesheet" href="/css/sections.css?v=cardfix2026">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/content-layouts.css?v=cardfix2026">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{TITLE}}",
+    "description": "{{META_DESCRIPTION}}",
+    "datePublished": "{{PUBLISHED_DATE_ISO}}",
+    "dateModified": "{{UPDATED_DATE_ISO}}",
+    "author": {
+      "@type": "Organization",
+      "name": "Asia888",
+      "url": "{{SITE_ORIGIN}}/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Asia888",
+      "url": "{{SITE_ORIGIN}}/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{SITE_ORIGIN}}/assets/icons/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{CANONICAL_URL}}"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{SITE_ORIGIN}}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{SITE_ORIGIN}}/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{TITLE}}",
+        "item": "{{CANONICAL_URL}}"
+      }
+    ]
+  }
+  </script>
+
+  {{FAQ_SCHEMA_SCRIPT}}
+
+</head>
+
+<body data-page="blog" data-blog-slug="{{SLUG}}" data-related-slugs="{{RELATED_POST_SLUGS}}">
+  <div id="partial-header"></div>
+
+  <main id="main-content">
+    <section class="section section--affiliate section--tight" data-animate aria-label="Open Asia888">
+      <div class="container">
+        <div class="affiliate-strip">
+          <p class="affiliate-strip__text">Articles are informational—<strong>open Asia888</strong> for live limits,
+            bonuses and account tools.</p>
+          <div class="affiliate-strip__actions">
+            <a href="https://reffpa.com/L?tag=d_5496419m_1236c_&amp;site=5496419&amp;ad=1236"
+              class="btn btn--primary btn--glow" target="_blank" rel="noopener noreferrer sponsored">Go to site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight blog-article-hero" aria-labelledby="blog-article-title" data-animate>
+      <div class="blog-article-hero__bg" aria-hidden="true"></div>
+      <div class="container blog-article-hero__container">
+        <div class="blog-article-hero__main">
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <ol class="blog-breadcrumb__list">
+              <li><a href="/">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li><a href="/blog/">Blog</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page">{{TITLE}}</li>
+            </ol>
+          </nav>
+          <p class="blog-article-hero__meta">{{CATEGORY}} · {{READING_TIME}}</p>
+          <h1 id="blog-article-title" class="blog-article-hero__title">{{TITLE}}</h1>
+          <p class="blog-article-hero__excerpt">{{EXCERPT}}</p>
+          <div class="blog-article-hero__footer">
+            <time class="blog-article-hero__date" datetime="{{PUBLISHED_DATE_ISO}}">{{PUBLISHED_DATE_FORMATTED}}</time>
+            <div class="blog-share blog-share--hero" aria-label="Share article">
+              <span class="blog-share__label">Share</span>
+              <div class="blog-share__links">
+                <a href="https://twitter.com/intent/tweet?url={{SHARE_URL_ENCODED}}&amp;text={{SHARE_TITLE}}"
+                  target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{SHARE_URL_ENCODED}}" target="_blank"
+                  rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{SHARE_URL_ENCODED}}" target="_blank"
+                  rel="noopener noreferrer">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="blog-article-hero__aside" aria-hidden="true">
+          <div class="blog-article-hero__aside-inner">
+            <div class="blog-article-hero__aside-glow"></div>
+            <svg class="blog-article-hero__aside-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="blog-hero-sheen" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#5eead4"/>
+                  <stop offset="100%" stop-color="#22d3ee"/>
+                </linearGradient>
+              </defs>
+              <rect x="12" y="28" width="28" height="64" rx="6" stroke="url(#blog-hero-sheen)" stroke-width="2" opacity="0.85"/>
+              <rect x="46" y="36" width="28" height="56" rx="6" stroke="url(#blog-hero-sheen)" stroke-width="2" opacity="0.65"/>
+              <rect x="80" y="20" width="28" height="80" rx="6" stroke="url(#blog-hero-sheen)" stroke-width="2" opacity="0.45"/>
+              <circle cx="26" cy="52" r="4" fill="rgba(94,234,212,0.45)"/>
+              <circle cx="60" cy="58" r="4" fill="rgba(94,234,212,0.35)"/>
+              <circle cx="94" cy="48" r="4" fill="rgba(94,234,212,0.28)"/>
+            </svg>
+            <p class="blog-article-hero__aside-caption">Asia888 guides</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container section section--tight blog-featured-section" data-animate>
+      <div class="blog-featured" style="background: {{PLACEHOLDER_GRADIENT}};">{{FOCUS_KEYWORD}}</div>
+    </section>
+
+    <article class="container section blog-article-wrap" data-animate>
+      <div class="blog-article-layout">
+        <div class="blog-article-main">
+          <div class="article-prose blog-prose">
+            {{TOC_HTML}}
+
+            {{ARTICLE_BODY}}
+          </div>
+
+          <section class="section section--tight blog-inline-cta">
+            <div class="blog-inline-cta__card">
+              <div class="blog-inline-cta__content">
+                <p class="blog-inline-cta__eyebrow">One wallet · asia888.cc</p>
+                <h2 class="blog-inline-cta__title">Play at Asia888</h2>
+                <p class="blog-inline-cta__lede">Open <a href="https://reffpa.com/L?tag=d_5496419m_1236c_&amp;site=5496419&amp;ad=1236" target="_blank"
+                    rel="noopener noreferrer sponsored"><strong>Asia888</strong></a> for slots, live tables, sports,
+                  and promos—and keep play within limits you set.</p>
+                <div class="blog-inline-cta__actions">
+                  <a href="https://reffpa.com/L?tag=d_5496419m_1236c_&amp;site=5496419&amp;ad=1236"
+                    class="btn btn--primary btn--glow blog-inline-cta__btn-primary" target="_blank" rel="noopener noreferrer sponsored">Open Asia888</a>
+                  <a href="/faq.html#responsible" class="btn btn--outline blog-inline-cta__btn-secondary">Playing safely</a>
+                </div>
+              </div>
+              <div class="blog-inline-cta__accent" aria-hidden="true">
+                <div class="blog-inline-cta__accent-inner">
+                  <div class="blog-inline-cta__accent-graphic">
+                    <svg class="blog-inline-cta__accent-svg" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="blog-cta-sheen" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#5eead4"/>
+                          <stop offset="100%" stop-color="#22d3ee"/>
+                        </linearGradient>
+                      </defs>
+                      <rect x="10" y="18" width="14" height="36" rx="4" stroke="url(#blog-cta-sheen)" stroke-width="1.75" opacity="0.95"/>
+                      <rect x="29" y="22" width="14" height="32" rx="4" stroke="url(#blog-cta-sheen)" stroke-width="1.75" opacity="0.8"/>
+                      <rect x="48" y="14" width="14" height="44" rx="4" stroke="url(#blog-cta-sheen)" stroke-width="1.75" opacity="0.65"/>
+                      <circle cx="17" cy="32" r="2.5" fill="rgba(94,234,212,0.5)"/>
+                      <circle cx="36" cy="36" r="2.5" fill="rgba(94,234,212,0.45)"/>
+                      <circle cx="55" cy="40" r="2.5" fill="rgba(94,234,212,0.35)"/>
+                    </svg>
+                  </div>
+                  <p class="blog-inline-cta__accent-label">All in one place</p>
+                  <ul class="blog-inline-cta__accent-tags">
+                    <li><span class="blog-inline-cta__accent-chip">Slots</span></li>
+                    <li><span class="blog-inline-cta__accent-chip">Live casino</span></li>
+                    <li><span class="blog-inline-cta__accent-chip">Sports</span></li>
+                  </ul>
+                  <p class="blog-inline-cta__accent-foot">From <strong>RM20</strong> top-ups</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="article-related blog-related" id="related-posts" aria-label="Related posts">
+            <h2 class="section__title blog-related__title">Related posts</h2>
+            <p class="blog-related-placeholder">Loading related posts…</p>
+            <ul class="blog-related-list" hidden></ul>
+          </section>
+        </div>
+
+        <aside class="blog-sidebar" aria-label="More from the blog">
+          <div class="feature-card blog-sidebar-card">
+            <h3 class="blog-sidebar__heading">Recent posts</h3>
+            <ul class="blog-sidebar-list" id="sidebar-posts">
+              <li class="blog-sidebar-placeholder">Loading…</li>
+            </ul>
+          </div>
+          <div class="feature-card blog-sidebar-card blog-sidebar-cta">
+            <h3 class="blog-sidebar__heading">Explore the site</h3>
+            <p class="blog-sidebar-cta__text">Slots, live casino, sports, and promotions at asia888.cc.</p>
+            <div class="blog-sidebar-cta__actions">
+              <a href="/slots.html" class="btn btn--outline">Slots</a>
+              <a href="/live-casino.html" class="btn btn--outline">Live casino</a>
+              <a href="/sports.html" class="btn btn--outline">Sports</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <div id="partial-footer"></div>
+
+  <script defer src="/js/load-partials.js"></script>
+  <script defer src="/js/main.js"></script>
+  <script defer src="/js/blog-article.js"></script>
+</body>
+
+</html>
