@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     initScrollObserver();
     initHeaderScroll();
+    initNavActiveState();
     initSmoothScroll();
     initScrollToTop();
     initCountUp();
@@ -88,6 +89,119 @@ function initHeaderScroll() {
         }
     });
 }
+
+var navActiveListenersBound = false;
+
+function normalizeSitePath(path) {
+    if (!path) return '/';
+    try {
+        path = decodeURI(path);
+    } catch (e) {
+        /* keep path */
+    }
+    path = path.replace(/\/index\.html$/i, '') || '/';
+    if (path.length > 1 && path.slice(-1) === '/') {
+        path = path.slice(0, -1);
+    }
+    return path || '/';
+}
+
+function comparableRoutePath(path) {
+    var p = normalizeSitePath(path);
+    if (p.length > 5 && /\.html$/i.test(p)) {
+        p = p.replace(/\.html$/i, '');
+    }
+    return p || '/';
+}
+
+function pathEndsWithSegment(full, suffix) {
+    if (!suffix || suffix === '/') return false;
+    if (full === suffix) return true;
+    if (!full.endsWith(suffix)) return false;
+    var before = full.charAt(full.length - suffix.length - 1);
+    return before === '/' || before === '';
+}
+
+function navLinkMatchesCurrent(anchor, normalizedPath, hash, isWide) {
+    var raw = anchor.getAttribute('href');
+    if (!raw || raw === '#') return false;
+
+    var u;
+    try {
+        u = new URL(raw, window.location.href);
+    } catch (e) {
+        return false;
+    }
+
+    var lp = normalizeSitePath(u.pathname);
+    var linkHash = u.hash || '';
+
+    if (/\/blog(\/|$)/.test(normalizedPath) && lp.indexOf('/blog') === 0) {
+        return true;
+    }
+
+    if ((normalizedPath === '/' || normalizedPath === '') && lp === '/') {
+        if (raw === '/' || raw === '') {
+            return !isWide && hash !== '#games';
+        }
+        if (linkHash === '#games' || raw.indexOf('#games') !== -1) {
+            if (hash === '#games') return true;
+            if (isWide && (hash === '' || hash === '#')) return true;
+            return false;
+        }
+        return false;
+    }
+
+    if (lp === '/' || lp === '') return false;
+
+    var npRoute = comparableRoutePath(normalizedPath);
+    var lpRoute = comparableRoutePath(lp);
+
+    if (npRoute === lpRoute || pathEndsWithSegment(npRoute, lpRoute)) {
+        return true;
+    }
+
+    return false;
+}
+
+function applyNavActiveState() {
+    var nav = document.querySelector('.header__nav');
+    if (!nav) return;
+
+    var path = normalizeSitePath(window.location.pathname);
+    var hash = window.location.hash || '';
+    var isWide = window.matchMedia('(min-width: 768px)').matches;
+
+    document.querySelectorAll('.header__nav a.is-active, #mobile-menu .mobile-menu__link.is-active').forEach(function (a) {
+        a.classList.remove('is-active');
+        a.removeAttribute('aria-current');
+    });
+
+    document.querySelectorAll('.header__nav a[href], #mobile-menu .mobile-menu__link[href]').forEach(function (a) {
+        if (navLinkMatchesCurrent(a, path, hash, isWide)) {
+            a.classList.add('is-active');
+            a.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
+function initNavActiveState() {
+    applyNavActiveState();
+
+    if (navActiveListenersBound) return;
+    navActiveListenersBound = true;
+
+    window.addEventListener('hashchange', applyNavActiveState);
+
+    var mq = window.matchMedia('(min-width: 768px)');
+    if (mq.addEventListener) {
+        mq.addEventListener('change', applyNavActiveState);
+    } else if (mq.addListener) {
+        mq.addListener(applyNavActiveState);
+    }
+}
+
+window.initNavActiveState = initNavActiveState;
 
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;

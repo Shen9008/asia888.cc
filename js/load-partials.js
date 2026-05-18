@@ -19,7 +19,14 @@
             .then(function (res) { return res.text(); })
             .then(function (html) {
                 el.innerHTML = html;
-                if (id === 'partial-header') initMobileMenu();
+                if (id === 'partial-header') {
+                    initMobileMenu();
+                    requestAnimationFrame(function () {
+                        if (typeof window.initNavActiveState === 'function') {
+                            window.initNavActiveState();
+                        }
+                    });
+                }
             })
             .catch(function () {
                 var isHeader = id === 'partial-header';
@@ -27,6 +34,13 @@
                     ? '<header class="header" id="header"><div class="container"><div class="header__inner"><a href="/" class="header__logo" aria-label="Asia888 home"><img src="/assets/icons/logo.png" alt="" decoding="async"></a><div class="header__toolbar"><nav class="header__nav"><a href="/#games">Games</a><a href="/slots.html">Slots</a><a href="/live-casino.html">Live Casino</a><a href="/sports.html">Sports</a><a href="/promotions.html">Promotions</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a></nav><div class="header__actions"><button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg></button></div></div></div></div></header>'
                     : '<footer class="footer"><div class="container"><p>&copy; Asia888</p></div></footer>';
                 if (isHeader) initMobileMenu();
+                if (isHeader) {
+                    requestAnimationFrame(function () {
+                        if (typeof window.initNavActiveState === 'function') {
+                            window.initNavActiveState();
+                        }
+                    });
+                }
             });
     }
 
