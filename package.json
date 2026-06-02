@@ -18,6 +18,7 @@
     "audit:links": "node scripts/audit-internal-links.js",
     "rename:images": "node scripts/bulk-rename-images.mjs",
     "build:webp": "node scripts/convert-assets-webp.mjs",
+    "sync:images": "node scripts/sync-from-images-folder.mjs",
     "sitemap": "node -e \"require('./scripts/lib/generate-sitemap.js').generateSitemap()\""
   },
   "devDependencies": {

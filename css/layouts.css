@@ -7,7 +7,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: calc(0.625rem + env(safe-area-inset-top, 0px)) env(safe-area-inset-right, 0px) 0.625rem env(safe-area-inset-left, 0px);
+    padding: calc(0.5rem + env(safe-area-inset-top, 0px)) env(safe-area-inset-right, 0px) 0.5rem env(safe-area-inset-left, 0px);
     background:
         radial-gradient(ellipse 110% 120% at 50% -20%, rgba(20, 184, 166, 0.2) 0%, transparent 55%),
         linear-gradient(180deg, rgba(22, 33, 52, 0.94) 0%, rgba(11, 20, 36, 0.93) 100%);
@@ -30,15 +30,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 1rem;
-    min-height: 3.5rem;
+    gap: 0.75rem;
+    min-height: 2.75rem;
 }
 
 .header__toolbar {
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: clamp(0.75rem, 2vw, 1.5rem);
+    gap: clamp(0.5rem, 1vw, 0.875rem);
 }
 
 .header__logo {
@@ -62,11 +62,11 @@
 
 .header__logo img {
     display: block;
-    height: 2.8rem;
+    height: 2.25rem;
     width: auto;
-    max-width: min(15rem, 56vw);
+    max-width: min(13rem, 52vw);
     object-fit: contain;
-    /* Light shadow only — logo asset includes its own edge treatment */
+    /* Light shadow only â€” logo asset includes its own edge treatment */
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
 }
 
@@ -79,20 +79,29 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        flex-wrap: wrap;
-        gap: clamp(1rem, 2.4vw, 2.25rem);
-        row-gap: 0.5rem;
+        flex-wrap: nowrap;
+        gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header__nav {
+        gap: 0.5rem;
+    }
+
+    .header__nav a {
+        font-size: 0.8125rem;
     }
 }
 
 .header__nav a {
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     color: rgba(224, 253, 250, 0.92);
     text-decoration: none;
-    padding: 0.35rem 0;
+    padding: 0.2rem 0;
     position: relative;
     white-space: nowrap;
     transition: color var(--transition-fast), text-shadow var(--transition-fast);
@@ -236,7 +245,7 @@
     pointer-events: auto;
 }
 
-/* Block flow + single scrollport — avoids iOS/WebKit flex scroll clipping where only
+/* Block flow + single scrollport â€” avoids iOS/WebKit flex scroll clipping where only
    the first rows paint and labels beside icons can collapse to zero width. */
 .mobile-menu__surface {
     box-sizing: border-box;
@@ -572,6 +581,21 @@ a.footer__logo:hover {
     color: var(--primary-light);
 }
 
+.footer__contact {
+    margin: 0.75rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.footer__contact a {
+    color: var(--text-muted);
+    word-break: break-all;
+}
+
+.footer__contact a:hover {
+    color: var(--primary-light);
+}
+
 .footer__sitemap {
     margin: -1rem 0 2rem;
     padding-bottom: 2rem;
@@ -596,7 +620,7 @@ a.footer__logo:hover {
 }
 
 .footer__sitemap-list li+li::before {
-    content: '·';
+    content: 'Â·';
     margin: 0 0.45rem;
     color: var(--text-subtle);
     font-weight: 400;
@@ -625,6 +649,14 @@ a.footer__logo:hover {
     letter-spacing: 0.05em;
     color: var(--text-muted);
     margin-bottom: 1rem;
+}
+
+
+.footer__trust-label--secondary {
+    margin-top: 1.35rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.68rem;
+    color: var(--text-subtle);
 }
 
 .footer__trust-links {

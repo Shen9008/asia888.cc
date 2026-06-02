@@ -64,6 +64,6 @@
     /* Header inner row, `.container`, promo rail — single content column width */
     --layout-max-width: 1280px;
 
-    /* Fixed header clearance — sync with `.header` vertical padding + `.header__logo img` height */
-    --site-header-offset: calc(4.75rem + env(safe-area-inset-top, 0px));
+    /* Fixed header clearance — sync with `.header` vertical padding + `.header__inner` min-height */
+    --site-header-offset: calc(3.75rem + env(safe-area-inset-top, 0px));
 }
