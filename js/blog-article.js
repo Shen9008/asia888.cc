@@ -23,9 +23,24 @@
     /** Sidebar “recent”: newest synced first (same rule as npm run sync / blog index). */
     function sortPosts(posts) {
         return posts.slice().sort(function (a, b) {
-            var tb = new Date(b.synced_at || b.published_date || 0).getTime();
-            var ta = new Date(a.synced_at || a.published_date || 0).getTime();
-            if (tb !== ta) return tb - ta;
+            var aHasSync = Boolean(a.synced_at);
+            var bHasSync = Boolean(b.synced_at);
+            if (aHasSync !== bHasSync) return aHasSync ? -1 : 1;
+
+            if (aHasSync && bHasSync) {
+                var tb = new Date(b.synced_at).getTime();
+                var ta = new Date(a.synced_at).getTime();
+                if (tb !== ta) return tb - ta;
+            }
+
+            var pb = new Date(b.published_date || 0).getTime();
+            var pa = new Date(a.published_date || 0).getTime();
+            if (pb !== pa) return pb - pa;
+
+            var cb = new Date(b.cms_updated_at || 0).getTime();
+            var ca = new Date(a.cms_updated_at || 0).getTime();
+            if (cb !== ca) return cb - ca;
+
             return String(b.slug || '').localeCompare(String(a.slug || ''));
         });
     }

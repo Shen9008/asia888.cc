@@ -1,8 +1,15 @@
 'use strict';
 
-const { getPostsSyncConfig, buildSamplePostsUrl } = require('./lib/fetch-posts.js');
+const {
+  getPostsSyncConfig,
+  buildSamplePostsUrl,
+  assertSiteFilterConfig,
+} = require('./lib/fetch-posts.js');
 
 const cfg = getPostsSyncConfig();
+const requireFilter = /^1|true|yes$/i.test(
+  String(process.env.SYNC_REQUIRE_SITE_FILTER || '').trim(),
+);
 
 console.log('Posts sync — configuration (copy `scripts/` + env to reuse on other sites)\n');
 
@@ -12,12 +19,17 @@ console.log('  SITE_DOMAIN             ', cfg.siteDomain || '(unset)');
 console.log('  SKIP_POSTS_SITE_FILTER  ', cfg.skipFilter ? 'yes' : 'no');
 console.log(
   '  POSTS_SITE_FILTER_KEY   ',
-  cfg.filterKey ? cfg.filterKey : '(empty — no domain filter param)',
+  cfg.filterKey || '(empty — no domain filter param)',
+);
+console.log(
+  '  SYNC_REQUIRE_SITE_FILTER',
+  requireFilter ? 'yes' : 'no',
 );
 console.log(
   '  STRAPI_API_TOKEN        ',
   process.env.STRAPI_API_TOKEN ? '(set)' : '(not set)',
 );
+console.log('  Site filter active      ', cfg.applySiteFilter ? 'yes' : 'no');
 
 console.log('\nSample GET (page 1):\n  ' + buildSamplePostsUrl(cfg, 1) + '\n');
 
@@ -29,6 +41,16 @@ if (!cfg.siteDomain && !cfg.skipFilter) {
   issues.push('SITE_DOMAIN is unset — sync runs without a site filter (see warning in fetch).');
 }
 
+if (requireFilter) {
+  try {
+    assertSiteFilterConfig();
+    console.log('Strict site filter check: OK\n');
+  } catch (err) {
+    issues.push(err.message.replace(/\n/g, '\n  '));
+  }
+}
+
 if (issues.length) {
   console.log('Notes:\n  - ' + issues.join('\n  - ') + '\n');
+  if (requireFilter) process.exit(1);
 }

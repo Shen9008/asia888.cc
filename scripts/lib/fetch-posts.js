@@ -33,6 +33,7 @@ function getPostsSyncConfig(opts = {}) {
     filterKey = DEFAULT_FILTER_KEY;
   } else {
     filterKey = String(rawKey).trim();
+    if (!filterKey) filterKey = DEFAULT_FILTER_KEY;
   }
 
   const applySiteFilter = Boolean(siteDomain && !skipFilter && filterKey);
@@ -72,6 +73,39 @@ function buildSamplePostsUrl(cfg, page = 1) {
  * @param {string} [opts.siteDomain]
  * @returns {Promise<Array>} Normalised post objects
  */
+/**
+ * Fail fast when SYNC_REQUIRE_SITE_FILTER=1 and site filter is missing or bypassed.
+ */
+function assertSiteFilterConfig(opts = {}) {
+  const requireFilter = /^1|true|yes$/i.test(
+    String(process.env.SYNC_REQUIRE_SITE_FILTER || '').trim(),
+  );
+  if (!requireFilter) return;
+
+  const cfg = getPostsSyncConfig(opts);
+  const errors = [];
+
+  if (!cfg.siteDomain) {
+    errors.push('SITE_DOMAIN is empty — sync must filter posts by site.');
+  }
+  if (cfg.skipFilter) {
+    errors.push('SKIP_POSTS_SITE_FILTER is enabled — not allowed when SYNC_REQUIRE_SITE_FILTER=1.');
+  }
+  if (!cfg.filterKey) {
+    errors.push('POSTS_SITE_FILTER_KEY is empty — no site filter param will be sent.');
+  }
+  if (cfg.siteDomain && !cfg.skipFilter && cfg.filterKey && !cfg.applySiteFilter) {
+    errors.push('Site filter could not be applied (check POSTS_SITE_FILTER_KEY and SITE_DOMAIN).');
+  }
+
+  if (errors.length) {
+    throw new Error(
+      'SYNC_REQUIRE_SITE_FILTER=1 but site filter is not configured:\n  - ' +
+      errors.join('\n  - '),
+    );
+  }
+}
+
 async function fetchPosts(opts = {}) {
   const cfg = getPostsSyncConfig(opts);
   const allPosts = [];
@@ -136,4 +170,5 @@ module.exports = {
   fetchPosts,
   getPostsSyncConfig,
   buildSamplePostsUrl,
+  assertSiteFilterConfig,
 };
