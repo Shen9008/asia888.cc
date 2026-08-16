@@ -19,7 +19,8 @@
     "rename:images": "node scripts/bulk-rename-images.mjs",
     "build:webp": "node scripts/convert-assets-webp.mjs",
     "sync:images": "node scripts/sync-from-images-folder.mjs",
-    "sitemap": "node -e \"require('./scripts/lib/generate-sitemap.js').generateSitemap()\""
+    "sitemap": "node -e \"require('./scripts/lib/generate-sitemap.js').generateSitemap()\"",
+    "indexnow": "node scripts/indexnow-submit.js"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
