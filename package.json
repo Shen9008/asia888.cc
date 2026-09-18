@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "npx --yes serve . -p 8880",
     "serve": "npx --yes serve . -p 8880",
-    "deploy": "wrangler pages deploy . --project-name=asia888-cc --branch=main",
+    "deploy": "node scripts/apply-seo-fixes.js && wrangler pages deploy . --project-name=asia888-cc --branch=main",
+    "build:css": "node -e \"require('./scripts/lib/bundle-css.js').bundleCss()\"",
+    "inject:partials": "node -e \"require('./scripts/lib/inject-partials.js').injectPartials()\"",
+    "seo:apply": "node scripts/apply-seo-fixes.js",
     "sync": "node scripts/content-sync.js",
     "sync:all": "node scripts/content-sync.js --all",
     "sync:refresh": "node scripts/content-sync.js --refresh",

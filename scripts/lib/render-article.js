@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const { normalizePost, validatePost } = require('./normalize-post.js');
 const { injectInternalLinks } = require('./inject-internal-links.js');
+const { injectInto } = require('./inject-partials.js');
 
 const ROOT = path.resolve(__dirname, '../..');
 const TEMPLATE_PATH = path.join(ROOT, 'scripts/templates/article.template.html');
@@ -189,7 +190,9 @@ function renderArticle(normalized, opts = {}) {
   const outDir = path.join(BLOG_DIR, normalized.slug);
   const outPath = path.join(outDir, 'index.html');
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(outPath, template, 'utf8');
+  const header = fs.readFileSync(path.join(ROOT, 'partials/header.html'), 'utf8');
+  const footer = fs.readFileSync(path.join(ROOT, 'partials/footer.html'), 'utf8');
+  fs.writeFileSync(outPath, injectInto(template, header, footer), 'utf8');
 
   return outPath;
 }

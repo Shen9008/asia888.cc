@@ -57,6 +57,7 @@
     color: var(--primary-light);
 }
 
+.listicle__content h3,
 .listicle__content h4 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
@@ -165,6 +166,7 @@
     box-shadow: 0 0 20px var(--primary-glow);
 }
 
+.steps__content h3,
 .steps__content h4 {
     font-size: 1.05rem;
     margin-bottom: 0.35rem;
